@@ -1,31 +1,28 @@
 import { getRequestConfig } from 'next-intl/server';
-import { defineRouting } from 'next-intl/routing';
 import { locales, defaultLocale } from './config';
-import { createSharedPathnamesNavigation } from 'next-intl/navigation';
+import { getContentForLocale } from './lib/content';
 
 export type Locale = (typeof locales)[number];
 
-export const { Link, usePathname, useRouter } = createSharedPathnamesNavigation({ locales });
-
-export const localeNames: Record<Locale, string> = {
-  "en": "EN",
-  "it": "IT",
-};
-
-const routing = defineRouting({
-  locales: locales,
-  defaultLocale: defaultLocale
-});
-
-export default getRequestConfig(async ({requestLocale}) => {
-  let locale = await requestLocale;
+export default getRequestConfig(async ({locale}) => {
  
-  if (!locale || !routing.locales.includes(locale as any)) {
-    locale = routing.defaultLocale;
+  if (!locale || !locales.includes(locale as any)) {
+    locale = defaultLocale;
   }
  
-  return {
-    locale,
-    messages: (await import(`../messages/${locale}.json`)).default
-  };
+  try {
+    const messages = await getContentForLocale(locale);
+    return {
+      locale,
+      messages
+    };
+  } catch (error) {
+    console.error(`Failed to load content for locale ${locale}:`, error);
+    // Fallback to default locale if content loading fails
+    const messages = await getContentForLocale(defaultLocale);
+    return {
+      locale: defaultLocale,
+      messages
+    };
+  }
 });

@@ -1,15 +1,22 @@
 'use client';
 
-import { Locale, localeNames, usePathname, useRouter } from '@/i18n';
+import { usePathname, useRouter } from '@/lib/routing';
 import { locales } from '@/config';
+import { useLocale } from 'next-intl';
 import { ChangeEvent } from 'react';
 
-export default function LocaleSwitcher({ locale }: { locale: Locale; }) {
+const localeNames: Record<string, string> = {
+  "en": "EN",
+  "it": "IT",
+};
+
+export default function LocaleSwitcher() {
   const pathname = usePathname();
   const router = useRouter();
+  const locale = useLocale();
 
   function changeLocale(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value as Locale;
+    const nextLocale = event.target.value as typeof locales[number];
     router.replace(pathname, { locale: nextLocale });
   }
 

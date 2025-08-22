@@ -24,13 +24,7 @@ export interface PageContent extends Record<string, any> {
 
 const contentDirectory = path.join(process.cwd(), 'content');
 
-export async function getContentForLocale(locale: string): Promise<PageContent> {
-  const localeDir = path.join(contentDirectory, locale);
-  
-  if (!fs.existsSync(localeDir)) {
-    throw new Error(`Content directory for locale ${locale} not found`);
-  }
-
+async function getContentForLocaleFromPath(localeDir: string): Promise<PageContent> {
   const content: PageContent = {
     menu: {},
     home: { title: '', content: '' },
@@ -81,6 +75,33 @@ export async function getContentForLocale(locale: string): Promise<PageContent> 
   }
 
   return content;
+}
+
+export async function getContentForLocale(locale: string): Promise<PageContent> {
+  const localeDir = path.join(contentDirectory, locale);
+  
+  if (!fs.existsSync(localeDir)) {
+    // Try alternative paths common in deployment environments
+    const altContentDir1 = path.join(__dirname, '../../content');
+    const altContentDir2 = path.join(__dirname, '../../../content'); 
+    const altContentDir3 = path.join(process.cwd(), '.next/content');
+    
+    const altLocaleDir1 = path.join(altContentDir1, locale);
+    const altLocaleDir2 = path.join(altContentDir2, locale);
+    const altLocaleDir3 = path.join(altContentDir3, locale);
+    
+    if (fs.existsSync(altLocaleDir1)) {
+      return getContentForLocaleFromPath(altLocaleDir1);
+    } else if (fs.existsSync(altLocaleDir2)) {
+      return getContentForLocaleFromPath(altLocaleDir2);
+    } else if (fs.existsSync(altLocaleDir3)) {
+      return getContentForLocaleFromPath(altLocaleDir3);
+    }
+    
+    throw new Error(`Content directory for locale ${locale} not found. Searched: ${localeDir}, ${altLocaleDir1}, ${altLocaleDir2}, ${altLocaleDir3}`);
+  }
+
+  return getContentForLocaleFromPath(localeDir);
 }
 
 export async function saveContentItem(locale: string, slug: string, frontmatter: Record<string, any>, content: string): Promise<void> {

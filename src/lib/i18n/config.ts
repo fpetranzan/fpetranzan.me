@@ -20,6 +20,6 @@ export const pathnames: Pathnames<typeof locales> = {
 export const localePrefix: LocalePrefix<typeof locales> = 'always';
 
 export const port = process.env.PORT || 3000;
-export const host = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
+export const host = process.env.BASE_URL
+  ? `https://${process.env.BASE_URL}`
   : `http://localhost:${port}`;

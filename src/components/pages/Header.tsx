@@ -1,6 +1,6 @@
 import ThemeToggle from "../utils/ThemeToggle";
 import LocaleSwitcher from "../utils/LocaleSwitch";
-import { Link } from "@/lib/routing";
+import { Link } from "@/lib/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 export default function Header() {

@@ -1,13 +1,12 @@
 import type { MetadataRoute } from 'next'
-import { host } from '@/config'
+import { host } from '@/lib/i18n/config'
  
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: '/admin/'
+        allow: '/'
       }
     ],
     sitemap: `${host}/sitemap.xml`,

@@ -5,7 +5,7 @@ import { getContentForLocale } from "@/lib/content";
 import { Roboto_Condensed } from 'next/font/google'
 import Footer from "@/components/pages/Footer";
 import Header from "@/components/pages/Header";
-import { host } from "@/config";
+import { host } from "@/lib/i18n/config";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   let messages;

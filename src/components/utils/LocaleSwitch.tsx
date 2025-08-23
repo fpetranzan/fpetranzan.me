@@ -1,7 +1,7 @@
 'use client';
 
-import { usePathname, useRouter } from '@/lib/routing';
-import { locales } from '@/config';
+import { usePathname, useRouter } from '@/lib/i18n/navigation';
+import { locales } from '@/lib/i18n/config';
 import { useLocale } from 'next-intl';
 import { ChangeEvent } from 'react';
 

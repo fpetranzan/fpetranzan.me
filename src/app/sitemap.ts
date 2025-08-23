@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { host, locales, pathnames } from '@/config'
+import { host, locales, pathnames } from '@/lib/i18n/config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = host

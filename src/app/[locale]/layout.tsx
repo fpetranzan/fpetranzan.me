@@ -115,7 +115,7 @@ export default async function RootLayout({
                 "https://github.com/fpetranzan",
                 "https://linkedin.com/in/francesco-petranzan"
               ],
-              "knowsAbout": ["Software Engineering", "Java", "Spring Boot", "Backend Development", "Next.js", "TypeScript"]
+              "knowsAbout": ["Software Engineering", "Java", "Spring Boot", "Backend Development", "Web Development", "SQL", "Docker"]
             })
           }}
         />

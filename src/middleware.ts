@@ -1,17 +1,19 @@
 import createMiddleware from 'next-intl/middleware';
-import {localePrefix, defaultLocale, locales, pathnames} from './config';
+import { locales, defaultLocale, pathnames } from './lib/i18n/config';
 
 export default createMiddleware({
-  defaultLocale,
   locales,
-  localePrefix,
-  pathnames
+  defaultLocale,
+  pathnames,
+  localePrefix: 'always',
+  // Disable cookie storage to avoid saving locale preferences
+  localeDetection: false
 });
 
 export const config = {
   matcher: [
     '/',
     '/(en|it)/:path*',
-    "/((?!api|_next|_vercel|.*\\..*).*)",
+    "/((?!api|_next|_vercel|admin|.*\\..*).*)",
   ]
 };

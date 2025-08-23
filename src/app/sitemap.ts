@@ -1,25 +1,39 @@
-import {MetadataRoute} from 'next';
-import {locales, pathnames, defaultLocale} from '@/config';
-import {getPathname} from '@/navigation';
+import { MetadataRoute } from 'next'
+import { host, locales, pathnames } from '@/lib/i18n/config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const keys = Object.keys(pathnames) as Array<keyof typeof pathnames>;
- 
-  function getUrl(
-    key: keyof typeof pathnames,
-    locale: (typeof locales)[number]
-  ) {
-    const pathname = getPathname({locale, href: key});
-    return `${process.env.BASE_URL}/${locale}${pathname === '/' ? '' : pathname}`;
-  }
- 
-  return keys.map((key) => ({
-    url: getUrl(key, defaultLocale),
-    lastModified: new Date(),
-    alternates: {
-      languages: Object.fromEntries(
-        locales.map((locale) => [locale, getUrl(key, locale)])
-      )
-    }
-  }));
+  const baseUrl = host
+  const sitemap: MetadataRoute.Sitemap = []
+  
+  // Add pages for each locale
+  Object.entries(pathnames).forEach(([defaultPath, localizedPaths]) => {
+    locales.forEach(locale => {
+      const localizedPath = typeof localizedPaths === 'string' 
+        ? localizedPaths 
+        : localizedPaths[locale as keyof typeof localizedPaths]
+      
+      const url = `${baseUrl}/${locale}${localizedPath === '/' ? '' : localizedPath}`
+      
+      // Create alternates for this page
+      const alternates: Record<string, string> = {}
+      locales.forEach(altLocale => {
+        const altPath = typeof localizedPaths === 'string'
+          ? localizedPaths
+          : localizedPaths[altLocale as keyof typeof localizedPaths]
+        alternates[altLocale] = `${baseUrl}/${altLocale}${altPath === '/' ? '' : altPath}`
+      })
+      
+      sitemap.push({
+        url,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: defaultPath === '/' ? 1 : 0.8,
+        alternates: {
+          languages: alternates
+        }
+      })
+    })
+  })
+  
+  return sitemap
 }

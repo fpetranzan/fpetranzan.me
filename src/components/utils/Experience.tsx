@@ -1,10 +1,21 @@
-import { useMessages, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 export default function Experience({ experience }: { experience: string }) {
     const t = useTranslations('experiences');
-    const messages = useMessages() as { experiences: { [key: string]: { activities: { [key: string]: any }, tecnologies: { [key: string]: any } } } };
-    const tecnologies = Object.keys(messages.experiences[experience].tecnologies);
-    const activities = Object.keys(messages.experiences[experience].activities);
+    const experienceData = t.raw(`${experience}`) as { 
+        name: string; 
+        role: string; 
+        start: string; 
+        end: string; 
+        tecnologies: { [key: string]: string };
+        description: string;
+    };
+
+    if (!experienceData) {
+        return null;
+    }
+
+    const tecnologies = experienceData.tecnologies ? Object.keys(experienceData.tecnologies) : [];
 
     return (<>
         <div className="my-5">
@@ -25,14 +36,9 @@ export default function Experience({ experience }: { experience: string }) {
                     ))
                 }
             </div>
-            <p className="my-2 text-sm sm:my-3 sm:text-base">{t(`${experience}.description`)}</p>
-            {
-                activities.map((activity) => (
-                    <li key={activity} className="text-sm sm:text-base">
-                        {t(`${experience}.activities.${activity}`)}
-                    </li>
-                ))
-            }
+            <div className="my-2 text-sm sm:my-3 sm:text-base">
+                <div dangerouslySetInnerHTML={{ __html: experienceData.description }} />
+            </div>
         </div>
     </>);
 }

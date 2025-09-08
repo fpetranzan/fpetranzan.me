@@ -9,16 +9,16 @@ export default function ProjectsPage() {
   const sortedProjects = projects.sort((a, b) => {
     const projectA = (messages.projects as any)[a];
     const projectB = (messages.projects as any)[b];
-    
+
     const orderA = projectA?.order || 999;
     const orderB = projectB?.order || 999;
-    
+
     if (orderA !== orderB) {
-      return orderA - orderB;
+      return orderB - orderA; // Reverse order
     }
-    
-    // If orders are equal, sort alphabetically
-    return a.localeCompare(b);
+
+    // If orders are equal, sort alphabetically in reverse
+    return b.localeCompare(a);
   });
 
   return (<>

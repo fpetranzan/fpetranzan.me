@@ -14,11 +14,11 @@ export default function ExperiencesPage() {
     const orderB = experienceB?.order || 999;
     
     if (orderA !== orderB) {
-      return orderA - orderB;
+      return orderB - orderA;
     }
     
     // If orders are equal, sort alphabetically
-    return a.localeCompare(b);
+    return b.localeCompare(a);
   });
 
   return (<>

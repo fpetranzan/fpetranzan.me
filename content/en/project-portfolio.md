@@ -1,7 +1,7 @@
 ---
 name: fpetranzan.com
 year: '2025'
-order: 2
+order: 4
 tecnologies:
   one: NextJS
   two: TailwindCSS

@@ -20,7 +20,7 @@ export default function Project({ project }: { project: string }) {
 
     return (<>
         <div className="my-5">
-            <div className="flex items-end mt-3">
+            <div className="flex items-center mt-3">
                 <p className="text-xl mr-2 sm:text-2xl">{projectData.name}</p>
                 {projectData.liveUrl && (
                     <a href={projectData.liveUrl} target="_blank" className="block w-min">

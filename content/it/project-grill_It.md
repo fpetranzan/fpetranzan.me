@@ -7,7 +7,7 @@ tecnologies:
   - Dart
   - Supabase
   - Google API
-link: 'https://fpetranzan.github.io/Grill-It/'
+liveUrl: 'https://fpetranzan.github.io/Grill-It/'
 ---
 <p>"Grill It" è un'applicazione mobile sviluppata in Flutter che aiuta gli utenti a trovare luoghi ideali per organizzare grigliate in Italia.</p>
 <p>L'app offre una mappa interattiva con funzionalità di ricerca e filtri avanzati per scoprire aree attrezzate per barbecue.</p>

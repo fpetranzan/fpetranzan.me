@@ -5,6 +5,7 @@ order: 7
 tecnologies:
   - Python
 link: 'https://github.com/fpetranzan/mimitFuelPy'
+liveUrl: 'https://pypi.org/project/mimitfuelpy/'
 ---
 <p>mimitFuelPy è una libreria Python per accedere all'API Mimit dei prezzi del carburante in Italia.</p>
 <p>Fornisce un'interfaccia pulita e orientata agli oggetti per cercare stazioni di servizio e recuperare dati sui prezzi.</p>

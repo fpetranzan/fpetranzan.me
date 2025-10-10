@@ -16,6 +16,7 @@ export interface PageContent extends Record<string, any> {
   home: {
     title: string;
     content: string;
+    links?: Record<string, string>;
   };
   experiences: Record<string, any>;
   projects: Record<string, any>;
@@ -53,9 +54,13 @@ async function getContentForLocaleFromPath(localeDir: string): Promise<PageConte
     if (slug === 'menu') {
       content.menu = frontmatter;
     } else if (slug === 'home') {
+      // Extract links from frontmatter (exclude 'title' field)
+      const { title, ...links } = frontmatter;
+
       content.home = {
-        title: frontmatter.title || '',
-        content: htmlContent
+        title: title || '',
+        content: htmlContent,
+        links: links
       };
     } else if (slug === 'metadata') {
       content.metadata = frontmatter;

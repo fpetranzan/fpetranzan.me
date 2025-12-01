@@ -7,7 +7,7 @@ tecnologies:
   - Dart
   - Supabase
   - Google API
-liveUrl: 'https://fpetranzan.github.io/Grill-It/'
+liveUrl: 'https://grill-it.fpetranzan.me/'
 ---
 <p>"Grill It" is a Flutter mobile application designed to help users find ideal locations for organizing barbecues in Italy.</p>
 <p>The app features an interactive map interface with advanced search and filtering capabilities to discover grill-friendly areas.</p>

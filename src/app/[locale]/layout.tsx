@@ -7,7 +7,9 @@ import Footer from "@/components/pages/Footer";
 import Header from "@/components/pages/Header";
 import { host } from "@/lib/i18n/config";
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  
   let messages;
   try {
     messages = await getContentForLocale(locale);
@@ -80,11 +82,13 @@ const robotoCondensed = Roboto_Condensed({
 
 export default async function RootLayout({
   children,
-  params: {locale}
+  params
 }: {
   children: React.ReactNode;
-  params: {locale: string};
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  
   let messages;
   try {
     messages = await getContentForLocale(locale);

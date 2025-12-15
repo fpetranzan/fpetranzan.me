@@ -94,7 +94,7 @@ export default async function RootLayout({
     messages = await getContentForLocale(locale);
   } catch (error) {
     console.error(`Failed to load content for locale ${locale}:`, error);
-    messages = await getContentForLocale('en'); // fallback
+    messages = await getContentForLocale('en');
   }
 
   return (

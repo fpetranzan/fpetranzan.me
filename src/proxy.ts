@@ -1,14 +1,15 @@
 import createMiddleware from 'next-intl/middleware';
 import { locales, defaultLocale, pathnames } from './lib/i18n/config';
 
-export default createMiddleware({
+const intlMiddleware = createMiddleware({
   locales,
   defaultLocale,
   pathnames,
   localePrefix: 'always',
-  // Disable cookie storage to avoid saving locale preferences
   localeDetection: false
 });
+
+export default intlMiddleware;
 
 export const config = {
   matcher: [

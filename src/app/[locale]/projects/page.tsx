@@ -1,13 +1,9 @@
 import ProjectsPage from "@/components/pages/ProjectsPage";
+import Props from "@/components/utils/interface";
 import { getTranslations } from "next-intl/server";
 
-interface Params {
-  params: {
-    locale: string
-  }
-};
-
-export async function generateMetadata({ params }: Params) {
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
   const t = await getTranslations('metadata.projects');
   
   return {
@@ -22,8 +18,8 @@ export async function generateMetadata({ params }: Params) {
     },
     openGraph: {
       title: `${t('title')} | Francesco Petranzan`,
-      locale: `${params.locale}`,
-      url: `/${params.locale}/${t('url')}`,
+      locale: `${locale}`,
+      url: `/${locale}/${t('url')}`,
     },
   }
 }

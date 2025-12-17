@@ -4,8 +4,10 @@ import { getContentForLocale } from '../content';
 
 export type Locale = (typeof locales)[number];
 
-export default getRequestConfig(async ({locale}) => {
+export default getRequestConfig(async ({requestLocale}) => {
  
+  let locale = await requestLocale;
+
   if (!locale || !locales.includes(locale as any)) {
     locale = defaultLocale;
   }
@@ -18,7 +20,6 @@ export default getRequestConfig(async ({locale}) => {
     };
   } catch (error) {
     console.error(`Failed to load content for locale ${locale}:`, error);
-    // Fallback to default locale if content loading fails
     const messages = await getContentForLocale(defaultLocale);
     return {
       locale: defaultLocale,

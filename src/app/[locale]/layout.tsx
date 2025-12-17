@@ -7,6 +7,11 @@ import Footer from "@/components/pages/Footer";
 import Header from "@/components/pages/Header";
 import { host } from "@/lib/i18n/config";
 
+interface LayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   
@@ -83,10 +88,7 @@ const robotoCondensed = Roboto_Condensed({
 export default async function RootLayout({
   children,
   params
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
+}: LayoutProps) {
   const { locale } = await params;
   
   let messages;
@@ -100,7 +102,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
-        <link rel="canonical" href={`${host}/${locale === 'en' ? '' : locale}`} />
+        <link rel="canonical" href={`${host}/${locale}`} />
         <link rel="alternate" hrefLang="en" href={`${host}/en`} />
         <link rel="alternate" hrefLang="it" href={`${host}/it`} />
         <link rel="alternate" hrefLang="x-default" href={`${host}/en`} />
@@ -125,7 +127,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`mx-auto max-w-72 sm:max-w-lg md:max-w-2xl lg:max-w-4xl ${robotoCondensed.className}`}>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider attribute="class" enableSystem={false}>
             <Header />
             {children}

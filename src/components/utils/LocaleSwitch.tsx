@@ -25,7 +25,7 @@ export default function LocaleSwitcher() {
       <select
         value={locale}
         onChange={changeLocale}
-        className="bg-transparent"
+        className="bg-transparent cursor-pointer"
       >
         {locales.map((loc) => (
           <option key={loc} value={loc} className='dark:text-black'>

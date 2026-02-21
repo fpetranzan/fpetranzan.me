@@ -8,6 +8,9 @@ tecnologies:
   - Next JS
   - Redis
   - PostrgreSQL
+  - TailwindCSS
+  - TypeScript
+  - Docker
 liveUrl: 'https://vivere-in.fpetranzan.me/'
 ---
 <p>The project allows users to explore and filter Italian municipalities through multiple socio-economic parameters provided by ISTAT: population, area, average income, number of university students, bank branches, resident foreigners, and other demographic indicators.</p>

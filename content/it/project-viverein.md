@@ -8,6 +8,9 @@ tecnologies:
   - Next JS
   - Redis
   - PostrgreSQL
+  - TailwindCSS
+  - TypeScript
+  - Docker
 liveUrl: 'https://vivere-in.fpetranzan.me/'
 ---
 <p>Il progetto permette di esplorare e filtrare i comuni italiani attraverso molteplici parametri socio-economici forniti dall'ISTAT: popolazione, superficie, reddito medio, numero di universitari, sportelli bancari, stranieri residenti e altri indicatori demografici.</p>

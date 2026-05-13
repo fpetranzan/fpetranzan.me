@@ -1,8 +1,8 @@
 ---
 name: Sopra Steria
 start: 09.2021
-end: today
-role: Software Engineer
+end: 09.2025
+role: Software Developer
 order: 1
 tecnologies:
   one: Java
@@ -13,7 +13,7 @@ tecnologies:
   six: Hybris
 ---
 
-Software Engineer at Sopra Steria, one of Europe's leading consulting and digital services companies. During this experience, I had the opportunity to contribute to high-impact projects in the e-commerce sector, working with large retail clients.
+Software Developer at Sopra Steria, one of Europe's leading consulting and digital services companies. During this experience, I had the opportunity to contribute to high-impact projects in the e-commerce sector, working with large retail clients.
 
 <p>- Development of new accessibility features in production environments with over 50 thousand monthly registrations: email verification via OTP, access and registration via Paypal and 2FA in internal tools</p>
 <p>- Development of a system for sending personalized emails, reducing lost sales from abandoned carts by more than 20%</p>

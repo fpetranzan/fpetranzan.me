@@ -1,10 +1,10 @@
 ---
 name: Sopra Steria
 start: 09.2021
-end: today
-role: Software Engineer
+end: 09.2025
+role: Software Developer
 order: 1
-tecnologies:
+technologies:
   one: Java
   two: Spring Boot
   three: SQL
@@ -12,7 +12,7 @@ tecnologies:
   five: Redis
   six: Hybris
 ---
-Software Engineer presso Sopra Steria, una delle principali aziende europee nel campo della consulenza e dei servizi digitali. Durante questa esperienza, ho avuto l'opportunità di contribuire a progetti di grande impatto nel settore e-commerce, collaborando con clienti della grande distribuzione.
+Software Developer presso Sopra Steria, una delle principali aziende europee nel campo della consulenza e dei servizi digitali. Durante questa esperienza, ho avuto l'opportunità di contribuire a progetti di grande impatto nel settore e-commerce, collaborando con clienti della grande distribuzione.
 
 <p>- Sviluppo di nuove funzionalità in tema di accessibilità in ambienti di produzione con oltre 50mila registrazioni mensili: verifica della mail tramite OTP, accesso e registrazione tramite Paypal e 2FA in strumenti interni</p>
 <p>- Sviluppo di un sistema per l’invio di email personalizzate, con riduzione di oltre il 20% delle vendite perse da carrelli abbandonati</p>

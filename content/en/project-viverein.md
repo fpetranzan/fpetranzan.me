@@ -2,7 +2,7 @@
 name: Vivere In
 year: '2025'
 order: 8
-tecnologies:
+technologies:
   - Java
   - Spring Boot
   - Next JS

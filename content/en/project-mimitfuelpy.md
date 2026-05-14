@@ -2,7 +2,7 @@
 name: mimitfuelpy
 year: '2025'
 order: 7
-tecnologies:
+technologies:
   - Python
 link: 'https://github.com/fpetranzan/mimitFuelPy'
 liveUrl: 'https://pypi.org/project/mimitfuelpy/'

@@ -2,7 +2,7 @@
 name: quizMaker
 year: '2025'
 order: 5
-tecnologies:
+technologies:
   - HTML
   - CSS
   - Javascript

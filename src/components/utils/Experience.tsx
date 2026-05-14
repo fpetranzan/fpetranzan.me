@@ -7,7 +7,7 @@ export default function Experience({ experience }: { experience: string }) {
         role: string; 
         start: string; 
         end: string; 
-        tecnologies: { [key: string]: string };
+        technologies: { [key: string]: string };
         description: string;
     };
 
@@ -15,7 +15,7 @@ export default function Experience({ experience }: { experience: string }) {
         return null;
     }
 
-    const tecnologies = experienceData.tecnologies ? Object.keys(experienceData.tecnologies) : [];
+    const technologies = experienceData.technologies ? Object.keys(experienceData.technologies) : [];
 
     return (<>
         <div className="my-5">
@@ -23,14 +23,14 @@ export default function Experience({ experience }: { experience: string }) {
             <hr />
             <div className="flex mt-3 items-center">
                 <p className="mr-auto text-md sm:text-lg">{t(`${experience}.role`)}</p>
-                <p className="text-sm font-light sm:text-base">{t(`${experience}.start`)} - {t(`${experience}.end`)}</p>
+                <p className="text-sm font-light sm:text-base">{t.rich(`${experience}.start`)} - {t.rich(`${experience}.end`)}</p>
             </div>
             <div className="flex gap-1 my-2 sm:my-3">
                 {
-                    tecnologies.map((tecnology) => (
-                        <div key={tecnology} className="border border-slate-400 rounded w-fit px-1">
+                    technologies.map((technology) => (
+                        <div key={technology} className="border border-slate-400 rounded w-fit px-1">
                             <span className="text-xs tracking-wide sm:text-sm">
-                                {t(`${experience}.tecnologies.${tecnology}`)}
+                                {t(`${experience}.technologies.${technology}`)}
                             </span>
                         </div>
                     ))

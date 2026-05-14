@@ -2,7 +2,7 @@
 name: fpetranzan.me
 year: '2025'
 order: 4
-tecnologies:
+technologies:
   one: NextJS
   two: TailwindCSS
   three: TypeScript

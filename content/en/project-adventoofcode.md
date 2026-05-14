@@ -2,7 +2,7 @@
 name: Advent of Code
 year: '2024'
 order: 3
-tecnologies:
+technologies:
   one: Java
 link: 'https://github.com/fpetranzan/adventofcode2024'
 ---

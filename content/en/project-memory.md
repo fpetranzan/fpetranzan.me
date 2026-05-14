@@ -2,7 +2,7 @@
 name: Java Memory Game
 year: '2019'
 order: 1
-tecnologies:
+technologies:
   one: Java
   two: Java Swing
 link: 'https://github.com/fpetranzan/java-memory-game'

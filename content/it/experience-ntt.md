@@ -4,7 +4,7 @@ start: 10.2025
 end: today
 role: Software Engineer
 order: 2
-tecnologies:
+technologies:
   - Java
   - Spring Boot
   - SQL

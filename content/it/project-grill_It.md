@@ -2,7 +2,7 @@
 name: Grill It
 year: '2025'
 order: 6
-tecnologies:
+technologies:
   - Flutter
   - Dart
   - Supabase

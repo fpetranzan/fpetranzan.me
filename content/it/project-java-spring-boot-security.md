@@ -2,7 +2,7 @@
 name: java-spring-boot-security
 year: '2024'
 order: 2
-tecnologies:
+technologies:
   one: Java
   two: Spring
   four: JWT

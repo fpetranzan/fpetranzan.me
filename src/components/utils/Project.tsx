@@ -6,7 +6,7 @@ export default function Project({ project }: { project: string }) {
     const projectData = t.raw(`${project}`) as { 
         name: string; 
         year: string; 
-        tecnologies: { [key: string]: string };
+        technologies: { [key: string]: string };
         description: string;
         link?: string;
         liveUrl?: string;
@@ -16,7 +16,7 @@ export default function Project({ project }: { project: string }) {
         return null;
     }
 
-    const tecnologies = projectData.tecnologies ? Object.keys(projectData.tecnologies) : [];
+    const technologies = projectData.technologies ? Object.keys(projectData.technologies) : [];
 
     return (<>
         <div className="my-5">
@@ -34,10 +34,10 @@ export default function Project({ project }: { project: string }) {
             <hr />
             <div className="flex gap-1 my-2 sm:my-3">
                 {
-                    tecnologies.map((tecnology) => (
-                        <div key={tecnology} className="border border-slate-400 rounded w-fit px-1">
+                    technologies.map((technology) => (
+                        <div key={technology} className="border border-slate-400 rounded w-fit px-1">
                             <span className="text-xs tracking-wide sm:text-sm">
-                                {projectData.tecnologies[tecnology]}
+                                {projectData.technologies[technology]}
                             </span>
                         </div>
                     ))

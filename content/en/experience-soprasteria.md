@@ -4,7 +4,7 @@ start: 09.2021
 end: 09.2025
 role: Software Developer
 order: 1
-tecnologies:
+technologies:
   one: Java
   two: Spring Boot
   three: SQL

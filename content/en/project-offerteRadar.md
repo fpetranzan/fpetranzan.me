@@ -2,7 +2,7 @@
 name: Offerte Radar Bot
 year: '2026'
 order: 9
-tecnologies:
+technologies:
   - Python
   - Telethon
   - python-telegram-bot

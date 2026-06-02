@@ -25,11 +25,11 @@ export default function Experience({ experience }: { experience: string }) {
                 <p className="mr-auto text-md sm:text-lg">{t(`${experience}.role`)}</p>
                 <p className="text-sm font-light sm:text-base">{t.rich(`${experience}.start`)} - {t.rich(`${experience}.end`)}</p>
             </div>
-            <div className="flex gap-1 my-2 sm:my-3">
+            <div className="flex flex-wrap gap-1.5 my-2 sm:my-3">
                 {
                     technologies.map((technology) => (
-                        <div key={technology} className="border border-slate-400 rounded w-fit px-1">
-                            <span className="text-xs tracking-wide sm:text-sm">
+                        <div key={technology} className="border border-slate-400 rounded px-1.5 py-0.5">
+                            <span className="text-xs tracking-wide whitespace-nowrap sm:text-sm">
                                 {t(`${experience}.technologies.${technology}`)}
                             </span>
                         </div>

@@ -1,7 +1,7 @@
 ---
 name: NTT DATA Gov&Tech
 start: 10.2025
-end: today
+end: oggi
 role: Software Engineer
 order: 2
 technologies:

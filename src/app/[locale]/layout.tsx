@@ -57,12 +57,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: "Francesco Petranzan - Software Engineer",
       description: messages.metadata.home?.description || "Francesco Petranzan Portfolio, Software developer. All about me, my career and my projects.",
       locale: locale,
-      alternateLocale: locale === 'en' ? ['it'] : ['en']
+      alternateLocale: locale === 'en' ? ['it'] : ['en'],
+      images: ["/og/opengraph-image.png"]
     },
     twitter: {
       card: "summary_large_image",
       title: "Francesco Petranzan - Software Engineer",
       description: messages.metadata.home?.description || "Francesco Petranzan Portfolio, Software developer. All about me, my career and my projects.",
+      images: ["/og/twitter-image.png"]
     },
     robots: {
       index: true,

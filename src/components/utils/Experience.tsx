@@ -23,7 +23,7 @@ export default function Experience({ experience }: { experience: string }) {
             <hr />
             <div className="flex mt-3 items-center">
                 <p className="mr-auto text-md sm:text-lg">{t(`${experience}.role`)}</p>
-                <p className="text-sm font-light sm:text-base">{t.rich(`${experience}.start`)} - {t.rich(`${experience}.end`)}</p>
+                <p className="text-sm font-light sm:text-base">{t(`${experience}.start`)} - {t(`${experience}.end`)}</p>
             </div>
             <div className="flex flex-wrap gap-1.5 my-2 sm:my-3">
                 {

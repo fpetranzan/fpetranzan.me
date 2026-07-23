@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: Props) {
       title: `${t('title')} | Francesco Petranzan`,
       locale: `${locale}`,
       url: `/${locale}/${t('url')}`,
+      images: ["/og/experiences/opengraph-image.png"]
+    },
+    twitter: {
+      images: ["/og/experiences/twitter-image.png"]
     },
   }
 }

@@ -68,6 +68,8 @@ async function getContentForLocaleFromPath(localeDir: string): Promise<PageConte
       const experienceKey = slug.replace('experience-', '');
       content.experiences[experienceKey] = {
         ...frontmatter,
+        start: String(frontmatter.start ?? ''),
+        end: String(frontmatter.end ?? ''),
         description: htmlContent
       };
     } else if (slug.startsWith('project-')) {
